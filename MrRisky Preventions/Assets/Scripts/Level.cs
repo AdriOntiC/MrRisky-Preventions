@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level : MonoBehaviour
+public class Level : Movie
 {
     [SerializeField] List<Option> options = new List<Option>();
 
-     public List<Option> Options { get => options;}
+    public List<Option> Options { get => options;}
 
     public static Level instance;
 
