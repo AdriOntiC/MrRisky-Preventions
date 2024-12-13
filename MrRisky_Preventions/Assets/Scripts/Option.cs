@@ -10,7 +10,7 @@ public class Option : Movie
 
     public static Option instance;
 
-    void Start(){
+    void Awake(){
         instance = this;
     }
 }

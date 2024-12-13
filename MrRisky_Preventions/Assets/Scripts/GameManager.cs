@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public float currentTime;
-    float topTime;
+    float topTime = 999999999;
     public float trustLevel;
     int completedLevels;
     string savePath;
@@ -14,14 +14,25 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
-    void Start(){
+    void Awake(){
         instance = this;
+    }
+
+    void Start(){
         completedLevels = 0;
-        topTime = 999999999;
+
+        if (PlayerPrefs.HasKey("TopTime")){
+            topTime = PlayerPrefs.GetFloat("TopTime");
+            UIManager.instance.SetTopTime();
+        }
+        else PlayerPrefs.SetFloat("TopTime", topTime);
     }
 
     public void AddCompletedLvl(){
         completedLevels++;
+        if (completedLevels == 5){
+            UIManager.instance.ChangeScreen(UIManager.instance.winGameScreen);
+        }
     }
 
     void StartCounting(){
@@ -50,15 +61,20 @@ public class GameManager : MonoBehaviour
         
         if(currentTime < topTime && completedLevels == 5){
             topTime = currentTime;
-            UIManager.instance.topTime.text = topTime.ToString();
             PlayerPrefs.SetFloat("TopTime", topTime);
-            // save toptime persistent
+            UIManager.instance.SetTopTime();
         }
+        
+        UIManager.instance.hiddenButtons.SetActive(false);
+        UIManager.instance.startGameBtn.SetActive(true);
+        UIManager.instance.ChangeScreen(UIManager.instance.playScreen);
     }
 
     public void PlayGame(){
         isCounting = true;
         StartCounting();
+        UIManager.instance.hiddenButtons.SetActive(true);
+        UIManager.instance.startGameBtn.SetActive(false);
         UIManager.instance.ChangeScreen(UIManager.instance.cameraScreen);
     }
 }

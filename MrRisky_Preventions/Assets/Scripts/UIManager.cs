@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject winGameScreen;
     public GameObject winScreen;
     public GameObject loseScreen;
     public GameObject trustScreen;
@@ -18,12 +19,17 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI topTime;
     private GameObject currentScreen;
 
+    public GameObject hiddenButtons;
+    public GameObject startGameBtn;
+
     public static UIManager instance;
 
-    void Start(){
+    void Awake(){
         instance = this;
+    }
+
+    void Start(){
         currentScreen = playScreen;
-        topTime.text = PlayerPrefs.GetFloat("TopTime").ToString();
     }
 
     public void ChangeScreen(GameObject screen){
@@ -38,5 +44,9 @@ public class UIManager : MonoBehaviour
 
     public void HidePopup(GameObject popup){
         popup.SetActive(false);
+    }
+
+    public void SetTopTime(){
+        topTime.text = PlayerPrefs.GetFloat("TopTime").ToString();
     }
 }

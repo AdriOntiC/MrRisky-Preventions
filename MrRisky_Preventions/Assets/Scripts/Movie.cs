@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Movie : MonoBehaviour
 {
-    public string name;
+    public string m_name;
     public string description;
 
     public Sprite image;

@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
 
     public static LevelManager instance;
 
-    void Start(){
+    void Awake(){
         instance = this;
     }
 
@@ -34,7 +34,7 @@ public class LevelManager : MonoBehaviour
 
     void DisplayOptions(){
         for (int i = 0; i < currentLevel.Options.Count; i++){
-            UIManager.instance.options[i].GetComponentInChildren<TextMeshProUGUI>().text = currentLevel.Options[i].name;
+            UIManager.instance.options[i].GetComponentInChildren<TextMeshProUGUI>().text = currentLevel.Options[i].m_name;
             UIManager.instance.options[i].GetComponentInChildren<Image>().sprite = currentLevel.Options[i].image;
         }
         UIManager.instance.ChangeScreen(UIManager.instance.optionsScreen);
@@ -45,9 +45,4 @@ public class LevelManager : MonoBehaviour
         currentLevel.Options[option].gameObject.SetActive(true);
         CheckWin(option);
     }
-
-    // void DisplayLevel(){
-    //     currentLevel.gameObject.SetActive(true);
-    //     // currentLevel.instance
-    // }
 }
