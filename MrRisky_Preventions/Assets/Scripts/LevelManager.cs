@@ -18,6 +18,11 @@ public class LevelManager : MonoBehaviour
         if(Level.instance.Options[option].IsCorrect){
             currentLevel.Options[option].gameObject.SetActive(false);
             UIManager.instance.ChangeScreen(UIManager.instance.winScreen);
+            foreach (Level lvl in UIManager.instance.signalsPlay.GetComponentsInChildren<Level>()){
+                if (lvl.m_name == currentLevel.m_name){
+                    lvl.GetComponent<Image>().color = Color.white;
+                }
+            }
             GameManager.instance.AddCompletedLvl();
         }
         else{
@@ -43,10 +48,10 @@ public class LevelManager : MonoBehaviour
     public void PlayOption(int option){
         // currentLevel.gameObject.SetActive(false);
         currentLevel.Options[option].gameObject.SetActive(true);
-        StartCoroutine(optionAnim(option));
+        StartCoroutine(OptionAnim(option));
     }
 
-    IEnumerator optionAnim(int option){
+    IEnumerator OptionAnim(int option){
         yield return new WaitForSeconds(2f);
         CheckWin(option);
     }

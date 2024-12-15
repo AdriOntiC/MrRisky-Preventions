@@ -22,6 +22,10 @@ public class UIManager : MonoBehaviour
 
     public GameObject hiddenButtons;
     public GameObject startGameBtn;
+    public GameObject signalsPlay;
+    public GameObject trustLevelRed;
+    public GameObject trustLevelYellow;
+    public GameObject trustLevelGreen;
 
     public static UIManager instance;
 

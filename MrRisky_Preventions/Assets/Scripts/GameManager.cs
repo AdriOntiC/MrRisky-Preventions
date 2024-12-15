@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     int completedLevels;
     string savePath;
     bool isCounting;
+
+    public GameObject currentTrustLevel;
 
     public static GameManager instance;
 
@@ -26,6 +29,9 @@ public class GameManager : MonoBehaviour
             UIManager.instance.SetTopTime();
         }
         else PlayerPrefs.SetFloat("TopTime", topTime);
+
+        currentTrustLevel = UIManager.instance.trustLevelRed;
+        SetTrustLevel();
     }
 
     public void AddCompletedLvl(){
@@ -36,11 +42,10 @@ public class GameManager : MonoBehaviour
     }
 
     void StartCounting(){
-        currentTime = 0; // Reinicia el contador
+        currentTime = 0;
         StartCoroutine(CountSeconds());
     }
 
-    // Coroutine que cuenta los segundos
     private IEnumerator CountSeconds()
     {
         while (isCounting)
@@ -63,6 +68,7 @@ public class GameManager : MonoBehaviour
             topTime = currentTime;
             PlayerPrefs.SetFloat("TopTime", topTime);
             UIManager.instance.SetTopTime();
+            SetTrustLevel();
         }
         
         UIManager.instance.hiddenButtons.SetActive(false);
@@ -75,6 +81,25 @@ public class GameManager : MonoBehaviour
         StartCounting();
         UIManager.instance.hiddenButtons.SetActive(true);
         UIManager.instance.startGameBtn.SetActive(false);
+        foreach (Level lvl in UIManager.instance.signalsPlay.GetComponentsInChildren<Level>()){
+            Color colorG;
+            if (ColorUtility.TryParseHtmlString("#3F3F3F", out colorG))
+                lvl.GetComponent<Image>().color = colorG;
+            }
         UIManager.instance.ChangeScreen(UIManager.instance.cameraScreen);
+    }
+
+    public void SetTrustLevel(){
+        currentTrustLevel.SetActive(false);
+        if(topTime >= 360 && topTime < 720){
+            currentTrustLevel = UIManager.instance.trustLevelYellow;
+        }
+        if(topTime >= 720 || topTime == 0){
+            currentTrustLevel = UIManager.instance.trustLevelRed;
+        }
+        if(topTime < 360){
+            currentTrustLevel = UIManager.instance.trustLevelGreen;
+        }
+        currentTrustLevel.SetActive(true);
     }
 }
