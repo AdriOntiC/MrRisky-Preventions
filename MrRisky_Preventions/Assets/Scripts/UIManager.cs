@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject scrollingBg;
     public GameObject winGameScreen;
     public GameObject winScreen;
     public GameObject loseScreen;
@@ -35,6 +36,10 @@ public class UIManager : MonoBehaviour
     public void ChangeScreen(GameObject screen){
         currentScreen.SetActive(false);
         currentScreen = screen;
+        if(currentScreen == cameraScreen || currentScreen == optionsScreen){
+            scrollingBg.SetActive(false);
+        }
+        else scrollingBg.SetActive(true);
         currentScreen.SetActive(true);
     }
 

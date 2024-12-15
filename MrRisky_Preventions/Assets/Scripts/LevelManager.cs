@@ -35,14 +35,19 @@ public class LevelManager : MonoBehaviour
     void DisplayOptions(){
         for (int i = 0; i < currentLevel.Options.Count; i++){
             UIManager.instance.options[i].GetComponentInChildren<TextMeshProUGUI>().text = currentLevel.Options[i].m_name;
-            UIManager.instance.options[i].GetComponentInChildren<Image>().sprite = currentLevel.Options[i].image;
+            UIManager.instance.options[i].GetComponentsInChildren<Image>()[1].sprite = currentLevel.Options[i].image;
         }
         UIManager.instance.ChangeScreen(UIManager.instance.optionsScreen);
     }
 
     public void PlayOption(int option){
-        currentLevel.gameObject.SetActive(false);
+        // currentLevel.gameObject.SetActive(false);
         currentLevel.Options[option].gameObject.SetActive(true);
+        StartCoroutine(optionAnim(option));
+    }
+
+    IEnumerator optionAnim(int option){
+        yield return new WaitForSeconds(2f);
         CheckWin(option);
     }
 }
