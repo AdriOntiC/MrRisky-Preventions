@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     float topTime = 999999999;
     public float trustLevel;
     int completedLevels;
-    string savePath;
     bool isCounting;
 
     public GameObject currentTrustLevel;
@@ -78,14 +77,16 @@ public class GameManager : MonoBehaviour
 
     public void PlayGame(){
         isCounting = true;
+        completedLevels = 0;
         StartCounting();
         UIManager.instance.hiddenButtons.SetActive(true);
         UIManager.instance.startGameBtn.SetActive(false);
         foreach (Level lvl in UIManager.instance.signalsPlay.GetComponentsInChildren<Level>()){
             Color colorG;
-            if (ColorUtility.TryParseHtmlString("#3F3F3F", out colorG))
+            if (ColorUtility.TryParseHtmlString("#3F3F3F", out colorG)){
                 lvl.GetComponent<Image>().color = colorG;
             }
+        }
         UIManager.instance.ChangeScreen(UIManager.instance.cameraScreen);
     }
 

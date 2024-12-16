@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    Level currentLevel;
+    [SerializeField] Level currentLevel;
 
     public static LevelManager instance;
 
@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour
     }
 
     void CheckWin(int option){
-        if(Level.instance.Options[option].IsCorrect){
+        if(currentLevel.Options[option].IsCorrect){
             currentLevel.Options[option].gameObject.SetActive(false);
             UIManager.instance.ChangeScreen(UIManager.instance.winScreen);
             foreach (Level lvl in UIManager.instance.signalsPlay.GetComponentsInChildren<Level>()){
