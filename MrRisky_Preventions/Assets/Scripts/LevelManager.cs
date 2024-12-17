@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] Level currentLevel;
+    public List<GameObject> targets;
 
     public static LevelManager instance;
 
@@ -21,6 +22,11 @@ public class LevelManager : MonoBehaviour
             foreach (Level lvl in UIManager.instance.signalsPlay.GetComponentsInChildren<Level>()){
                 if (lvl.m_name == currentLevel.m_name){
                     lvl.GetComponent<Image>().color = Color.white;
+                }
+            }
+            foreach (GameObject trg in targets){
+                if (trg.GetComponentInChildren<Level>().m_name == currentLevel.m_name){
+                    trg.SetActive(false);
                 }
             }
             GameManager.instance.AddCompletedLvl();

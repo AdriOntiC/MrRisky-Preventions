@@ -3914,6 +3914,7 @@ MonoBehaviour:
   trustLevelRed: {fileID: 93341164}
   trustLevelYellow: {fileID: 2106970573}
   trustLevelGreen: {fileID: 1844527979}
+  ARCamera: {fileID: 840344024}
 --- !u!1 &594304974
 GameObject:
   m_ObjectHideFlags: 0
@@ -5892,7 +5893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &840344025
 MonoBehaviour:
   m_ObjectHideFlags: 0
