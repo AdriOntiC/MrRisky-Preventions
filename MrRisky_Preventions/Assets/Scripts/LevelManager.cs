@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] Level currentLevel;
-    public List<GameObject> targets;
+    [SerializeField] GameObject currentTarget;
 
     public static LevelManager instance;
 
@@ -24,11 +24,7 @@ public class LevelManager : MonoBehaviour
                     lvl.GetComponent<Image>().color = Color.white;
                 }
             }
-            foreach (GameObject trg in targets){
-                if (trg.GetComponentInChildren<Level>().m_name == currentLevel.m_name){
-                    trg.SetActive(false);
-                }
-            }
+            currentTarget.SetActive(false);
             GameManager.instance.AddCompletedLvl();
         }
         else{
@@ -40,6 +36,7 @@ public class LevelManager : MonoBehaviour
     public void SetLevel(Level lvl){
         currentLevel = lvl;
         currentLevel.gameObject.SetActive(true);
+        currentTarget = currentLevel.transform.parent.gameObject;
         DisplayOptions();
     }
 
@@ -52,7 +49,6 @@ public class LevelManager : MonoBehaviour
     }
 
     public void PlayOption(int option){
-        // currentLevel.gameObject.SetActive(false);
         currentLevel.Options[option].gameObject.SetActive(true);
         StartCoroutine(OptionAnim(option));
     }

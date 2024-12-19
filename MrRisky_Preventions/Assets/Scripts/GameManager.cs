@@ -7,10 +7,12 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public float currentTime;
-    float topTime = 999999999;
+    float topTime = 999999;
     public float trustLevel;
     int completedLevels;
     bool isCounting;
+
+    public List<GameObject> targets;
 
     public GameObject currentTrustLevel;
 
@@ -86,6 +88,10 @@ public class GameManager : MonoBehaviour
             if (ColorUtility.TryParseHtmlString("#3F3F3F", out colorG)){
                 lvl.GetComponent<Image>().color = colorG;
             }
+        }
+
+        foreach (GameObject trg in targets){
+            trg.SetActive(true);
         }
         UIManager.instance.ChangeScreen(UIManager.instance.cameraScreen);
     }

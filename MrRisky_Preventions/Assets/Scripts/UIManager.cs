@@ -27,8 +27,6 @@ public class UIManager : MonoBehaviour
     public GameObject trustLevelYellow;
     public GameObject trustLevelGreen;
 
-    public GameObject ARCamera;
-
     public static UIManager instance;
 
     void Awake(){
@@ -44,11 +42,9 @@ public class UIManager : MonoBehaviour
         currentScreen = screen;
         if(currentScreen == cameraScreen || currentScreen == optionsScreen){
             scrollingBg.SetActive(false);
-            ARCamera.SetActive(true);
         }
         else{
             scrollingBg.SetActive(true);
-            ARCamera.SetActive(false);
         }
         currentScreen.SetActive(true);
     }
