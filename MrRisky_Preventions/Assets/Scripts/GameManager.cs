@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
 
         foreach (GameObject trg in targets){
             trg.SetActive(true);
+            Debug.Log($"{trg.name}: {trg.activeSelf}");
         }
         UIManager.instance.ChangeScreen(UIManager.instance.cameraScreen);
     }

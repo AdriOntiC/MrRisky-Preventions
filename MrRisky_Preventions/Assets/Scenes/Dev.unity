@@ -168,7 +168,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTime: 0
   trustLevel: 0
-  targets: []
+  targets:
+  - {fileID: 2042784133}
+  - {fileID: 1273797563}
+  - {fileID: 1721422919}
+  - {fileID: 2011038431}
+  - {fileID: 2114802840}
   currentTrustLevel: {fileID: 0}
 --- !u!1 &24188419
 GameObject:
