@@ -37,7 +37,7 @@ public class LevelManager : MonoBehaviour
         currentLevel = lvl;
         currentLevel.gameObject.SetActive(true);
         currentTarget = currentLevel.transform.parent.gameObject;
-        DisplayOptions();
+        StartCoroutine(WaitThenOptions());
     }
 
     void DisplayOptions(){
@@ -53,8 +53,13 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(OptionAnim(option));
     }
 
+    IEnumerator WaitThenOptions(){
+        yield return new WaitForSeconds(5f);
+        DisplayOptions();
+    }
+
     IEnumerator OptionAnim(int option){
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         CheckWin(option);
     }
 }

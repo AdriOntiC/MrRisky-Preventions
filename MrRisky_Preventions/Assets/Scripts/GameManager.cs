@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     int completedLevels;
     bool isCounting;
 
+    [SerializeField] AudioSource audioM;
+
     public List<GameObject> targets;
 
     public GameObject currentTrustLevel;
@@ -92,7 +94,6 @@ public class GameManager : MonoBehaviour
 
         foreach (GameObject trg in targets){
             trg.SetActive(true);
-            Debug.Log($"{trg.name}: {trg.activeSelf}");
         }
         UIManager.instance.ChangeScreen(UIManager.instance.cameraScreen);
     }
@@ -109,5 +110,11 @@ public class GameManager : MonoBehaviour
             currentTrustLevel = UIManager.instance.trustLevelGreen;
         }
         currentTrustLevel.SetActive(true);
+    }
+
+    public void ToggleMuted(){
+        if(audioM.mute){
+            audioM.mute = false;
+        } else audioM.mute = true;
     }
 }
