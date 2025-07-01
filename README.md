@@ -26,9 +26,9 @@ aprender sobre seguridad laboral de una manera lúdica y entretenida.
 - Arte: [Pol Minguella Ayuso](https://github.com/PolMiAy04)
 
 ## Game Screenshots
-![Main Screen](docs/Images/GameScreenshot1.jpg)
-![Global Progress Screen](docs/Images/GameScreenshot2.jpg)
-![Info Screen](docs/Images/GameScreenshot3.jpg)
-![Gameplay Screen/Camera](docs/Images/GameScreenshot4.jpg)
-![Level Completed Screen](docs/Images/GameScreenshot5.jpg)
-![Current Level Progress Screen](docs/Images/GameScreenshot6.jpg)
+![Main Screen](Docs/Images/GameScreenshot1.jpg)
+![Global Progress Screen](Docs/Images/GameScreenshot2.jpg)
+![Info Screen](Docs/Images/GameScreenshot3.jpg)
+![Gameplay Screen/Camera](Docs/Images/GameScreenshot4.jpg)
+![Level Completed Screen](Docs/Images/GameScreenshot5.jpg)
+![Current Level Progress Screen](Docs/Images/GameScreenshot6.jpg)
