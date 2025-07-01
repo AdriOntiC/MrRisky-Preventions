@@ -20,3 +20,7 @@ mediante una interfaz atractiva que muestra los niveles superados.
 ## Público objetivo
 ● Estudiantes de secundaria y empleados en formación laboral que deseen
 aprender sobre seguridad laboral de una manera lúdica y entretenida.
+
+## Desarrolladores
+- Programación: [Adrián Ontiveros Cruz](https://github.com/AdriOntiC)
+- Arte: [Pol Minguella Ayuso](https://github.com/PolMiAy04)
