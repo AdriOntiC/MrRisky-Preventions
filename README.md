@@ -10,15 +10,15 @@ evitar el accidente tomando la decisión correcta. El progreso del jugador es vi
 mediante una interfaz atractiva que muestra los niveles superados.
 
 ## Género
-● Educativo / Aventura en Realidad Aumentada
+- Educativo / Aventura en Realidad Aumentada
 
 ## Plataforma
-● Dispositivos móviles (Android) con soporte para AR
-● Compatibilidad con gafas AR/VR para una experiencia más inmersiva
+- Dispositivos móviles (Android) con soporte para AR
+- Compatibilidad con gafas AR/VR para una experiencia más inmersiva
 (opcional).
 
 ## Público objetivo
-● Estudiantes de secundaria y empleados en formación laboral que deseen
+- Estudiantes de secundaria y empleados en formación laboral que deseen
 aprender sobre seguridad laboral de una manera lúdica y entretenida.
 
 ## Desarrolladores
